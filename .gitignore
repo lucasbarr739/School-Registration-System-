@@ -1,0 +1,14 @@
+# IntelliJ
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Java
+*.class
+
+# Build folders
+out/
+target/
+bin/

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller"
+            prefWidth="1100"
+            prefHeight="750">
+
+    <top>
+        <Label text="Rutgers Registration System"
+               style="-fx-font-size: 18px; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <TabPane tabMinWidth="140" tabMaxWidth="200">
+            <tabs>
+
+                <Tab text="Students" closable="false">
+                    <GridPane hgap="15" vgap="15">
+                        <padding>
+                            <Insets top="25" right="25" bottom="25" left="25"/>
+                        </padding>
+
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="220" prefWidth="260"/>
+                            <ColumnConstraints minWidth="420" hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="First Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="firstNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="DOB (MM/DD/YYYY):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="dobField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Major (CS, ECE, MATH, ITI, BAIT):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="majorField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Credits:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="creditsField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <Label text="Student Type:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <HBox spacing="15" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                            <RadioButton fx:id="residentBtn" text="Resident"/>
+                            <RadioButton fx:id="triStateBtn" text="TriState"/>
+                            <RadioButton fx:id="internationalBtn" text="International"/>
+                        </HBox>
+
+                        <Label text="State (NY/CT):" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                        <TextField fx:id="stateField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                        <Label text="International Option:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                        <CheckBox fx:id="studyAbroadCheck"
+                                  text="Study Abroad"
+                                  GridPane.rowIndex="7"
+                                  GridPane.columnIndex="1"/>
+
+                        <HBox spacing="15" GridPane.rowIndex="8" GridPane.columnIndex="1">
+                            <Button text="Add Student" onAction="#handleAddStudent" prefWidth="120"/>
+                            <Button text="Remove Student" onAction="#handleRemoveStudent" prefWidth="130"/>
+                            <Button text="Print Students" onAction="#handlePrintStudents" prefWidth="130"/>
+                        </HBox>
+
+                        <HBox spacing="15" GridPane.rowIndex="9" GridPane.columnIndex="1">
+                            <Button text="Clear Output" onAction="#handleClearOutput" prefWidth="120"/>
+                        </HBox>
+
+                    </GridPane>
+                </Tab>
+
+                <Tab text="Enrollment" closable="false">
+                    <GridPane hgap="15" vgap="15">
+                        <padding>
+                            <Insets top="25" right="25" bottom="25" left="25"/>
+                        </padding>
+
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="220" prefWidth="260"/>
+                            <ColumnConstraints minWidth="420" hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="First Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="enrollFirstNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="enrollLastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="DOB (MM/DD/YYYY):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="enrollDobField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Course (ex: CS100):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="courseField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Time (periodOne, periodTwo...):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="timeField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <HBox spacing="15" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                            <Button text="Enroll" onAction="#handleEnroll" prefWidth="100"/>
+                            <Button text="Drop" onAction="#handleDrop" prefWidth="100"/>
+                        </HBox>
+                    </GridPane>
+                </Tab>
+
+                <Tab text="Reports" closable="false">
+                    <VBox spacing="18">
+                        <padding>
+                            <Insets top="25" right="25" bottom="25" left="25"/>
+                        </padding>
+
+                        <Label text="Reports and System Output"
+                               style="-fx-font-size: 15px;" />
+
+                        <HBox spacing="15">
+                            <Button text="Print Students" onAction="#handlePrintStudents" prefWidth="140"/>
+                            <Button text="Print Schedule by Course" onAction="#handlePrintScheduleByCourse" prefWidth="180"/>
+                            <Button text="Print Schedule by Location" onAction="#handlePrintScheduleByLocation" prefWidth="190"/>
+                        </HBox>
+
+                        <HBox spacing="15">
+                            <Button text="Print Tuition Report" onAction="#handlePrintTuitionReport" prefWidth="160"/>
+                            <Button text="Clear Output" onAction="#handleClearOutput" prefWidth="120"/>
+                        </HBox>
+
+                    </VBox>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </center>
+
+    <bottom>
+        <TextArea fx:id="outputArea"
+                  editable="false"
+                  wrapText="true"
+                  prefHeight="240"/>
+    </bottom>
+
+</BorderPane>
