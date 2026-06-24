@@ -44,5 +44,5 @@ This project strengthened my understanding of:
 
 ## Authors
 
-Lucas Barrales
-Shivang Patel
+*Lucas Barrales
+*Shivang Patel
