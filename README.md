@@ -42,9 +42,7 @@ This project strengthened my understanding of:
 * Software testing and debugging
 * Version control using Git
 
-## Author
+## Authors
 
 Lucas Barrales
-
-Computer Science Student at Rutgers University
-
+Shivang Patel
